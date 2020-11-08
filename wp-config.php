@@ -80,7 +80,7 @@ $table_prefix = 'wp1_loc_';
  */
 define( 'WP_DEBUG', false );
 
-define('FS_METHOD', 'direct');
+//define('FS_METHOD', 'direct');
 
 //if(is_admin()) {
 //    add_filter('filesystem_method', create_function('$a', 'return "direct";' ));
