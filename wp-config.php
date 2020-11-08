@@ -18,6 +18,8 @@
  * @package WordPress
  */
 
+
+
 // ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
 /** Имя базы данных для WordPress */
 define( 'DB_NAME', 'wp1_loc' );
@@ -77,6 +79,13 @@ $table_prefix = 'wp1_loc_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define( 'WP_DEBUG', false );
+
+define('FS_METHOD', 'direct');
+
+//if(is_admin()) {
+//    add_filter('filesystem_method', create_function('$a', 'return "direct";' ));
+//    define( 'FS_CHMOD_DIR', 0751 );
+//}
 
 /* Это всё, дальше не редактируем. Успехов! */
 
