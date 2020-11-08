@@ -1,0 +1,8 @@
+login: wp1_loc
+passw: wp1_loc
+
+mysql user:
+login: wp1_loc
+passw: wp1_loc
+
+db: wp1_loc
