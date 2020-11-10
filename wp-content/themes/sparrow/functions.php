@@ -5,6 +5,7 @@ add_action('wp_footer', 'scripts_theme');
 add_action('after_setup_theme', 'theme_register_nav_menu');
 add_action( 'widgets_init', 'register_my_widgets' );
 
+
 function register_my_widgets(){
     register_sidebar( array(
         'name'          => "Правый сайдбар",
@@ -22,6 +23,28 @@ function register_my_widgets(){
 function theme_register_nav_menu() {
     register_nav_menu( 'top', 'Меню в шапке' );
     register_nav_menu( 'footer', 'Меню в футере' );
+
+    add_theme_support( 'title-tag' );
+    add_theme_support( 'post-thumbnails', array( 'post' ) );          // Только для post
+    add_image_size( 'my_post_thumb', 1300, 500, true );
+
+    // удаляет H2 из шаблона пагинации
+    add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
+    function my_navigation_template( $template, $class ){
+        /*
+        Вид базового шаблона:
+        <nav class="navigation %1$s" role="navigation">
+            <h2 class="screen-reader-text">%2$s</h2>
+            <div class="nav-links">%3$s</div>
+        </nav>
+        */
+
+        return '
+	<nav class="navigation %1$s" role="navigation">
+		<div class="nav-links">%3$s</div>
+	</nav>    
+	';
+    }
 }
 
 function style_theme() {
