@@ -2,22 +2,7 @@
 get_header();
 ?>
 
-<!-- Page Title
-================================================== -->
-<div id="page-title">
-
-    <div class="row">
-
-        <div class="ten columns centered text-center">
-            <h1>Конкретный пост<span>.</span></h1>
-
-            <p>Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
-                enim tellus ultrices elit, amet consequat enim elit noneas sit amet luctu. </p>
-        </div>
-
-    </div>
-
-</div> <!-- Page Title End-->
+<?php echo "post-format: " . get_post_format(); ?>
 
 <!-- Content
 ================================================== -->
@@ -28,50 +13,24 @@ get_header();
         <div id="primary" class="eight columns">
 
             <?php the_post(); ?>
+            <?php
 
-            <article class="post">
-
-                <div class="entry-header cf">
-
-                    <h1><a href="<?php the_permalink();?>" title=""><?php the_title();?></a></h1>
-
-                    <p class="post-meta">
-
-                        <time class="date" datetime="2014-01-14T11:24"><?php the_time('F jS, Y'); ?></time>
-                        /
-                        <span class="categories">
-                            <?php the_tags('', ' / '); ?>
-<!--                     <a href="#">Design</a> /-->
-<!--                     <a href="#">User Inferface</a> /-->
-<!--                     <a href="#">Web Design</a>-->
-                     </span>
-
-                    </p>
-
-                </div>
-
-                <div class="post-thumb">
-<!--                    <a href="single.html" title=""><img src="images/post-image/post-image-1300x500-01.jpg" alt="post-image" title="post-image"></a>-->
-
-                    <a href="<?php the_permalink(); ?>" title="">
-                        <?php
-                            if ( has_post_thumbnail() ) {
-    //                                the_post_thumbnail('thumbnail', array('alt' => 'post-image'));
-                                the_post_thumbnail('my_post_thumb', array('alt' => 'post-image'));
-                            }
-                        ?>
-                    </a>
-                </div>
-
-                <div class="post-content">
-
-                    <?php the_content(); ?>
-                    <?php do_action('my_action'); ?>
+            $post_format = get_post_format();
+            get_template_part('post-templates/post', $post_format);
+//
+//            if ($post_format === false ) {
+//                get_template_part('post-templates/post');
+//            } elseif ($post_format === 'video') {
+//                get_template_part('post-templates/post', 'video');
+//            } elseif ($post_format === 'aside') {
+//                get_template_part('post-templates/post', 'aside');
+//            }
 
 
-                </div>
+            ?>
 
-            </article> <!-- post end -->
+
+
 
 
 

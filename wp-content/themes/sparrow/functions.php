@@ -53,6 +53,9 @@ function theme_register_nav_menu() {
 
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails', array( 'post' ) );          // Только для post
+
+    add_theme_support( 'post-formats', array( 'video', 'aside' ) );
+
     add_image_size( 'my_post_thumb', 1300, 500, true );
 
     // удаляет H2 из шаблона пагинации
