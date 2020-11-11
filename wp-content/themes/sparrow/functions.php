@@ -142,7 +142,7 @@ function register_post_types(){
         'show_in_rest'        => true, // добавить в REST API. C WP 4.7
         'rest_base'           => null, // $post_type. C WP 4.7
         'menu_position'       => 4,
-        'menu_icon'           => null,
+        'menu_icon'           => 'dashicons-format-gallery',
         //'capability_type'   => 'post',
         //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
         //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав

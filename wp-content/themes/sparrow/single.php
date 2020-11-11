@@ -77,30 +77,7 @@ get_header();
 <?php endif; ?>
 
 
-<?php
-// параметры по умолчанию
-$posts = get_posts( array(
-    'numberposts' => 3,
-    'post_type'   => 'portfolio',
-    'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-) );
 
-foreach( $posts as $post ){
-    setup_postdata($post);
-    // формат вывода the_title() ...
-
-    ?>
-    <div><?php the_title(); ?></div>
-    <div><?php the_content(); ?></div>
-
-
-<!--    доделать!!!-->
-    <?php
-
-}
-
-wp_reset_postdata(); // сброс
-?>
 
 
 <?php get_header(); ?>
