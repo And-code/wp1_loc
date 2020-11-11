@@ -4,6 +4,8 @@ get_header();
 
 <?php echo "post-format: " . get_post_format(); ?>
 
+<?php if(have_posts()) : while ( have_posts()) : the_post(); ?>
+
 <!-- Content
 ================================================== -->
 <div class="content-outer">
@@ -12,27 +14,12 @@ get_header();
 
         <div id="primary" class="eight columns">
 
-            <?php the_post(); ?>
+<!--            --><?php //the_post(); ?>
             <?php
 
-            $post_format = get_post_format();
-            get_template_part('post-templates/post', $post_format);
-//
-//            if ($post_format === false ) {
-//                get_template_part('post-templates/post');
-//            } elseif ($post_format === 'video') {
-//                get_template_part('post-templates/post', 'video');
-//            } elseif ($post_format === 'aside') {
-//                get_template_part('post-templates/post', 'aside');
-//            }
-
+            get_template_part('post-templates/post', get_post_format());
 
             ?>
-
-
-
-
-
 
         </div> <!-- Primary End-->
 
@@ -84,6 +71,36 @@ get_header();
 </section> <!-- Tweets Section End-->
 
 
+
+
+<?php endwhile; ?>
+<?php endif; ?>
+
+
 <?php
-get_header();
+// параметры по умолчанию
+$posts = get_posts( array(
+    'numberposts' => 3,
+    'post_type'   => 'portfolio',
+    'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+) );
+
+foreach( $posts as $post ){
+    setup_postdata($post);
+    // формат вывода the_title() ...
+
+    ?>
+    <div><?php the_title(); ?></div>
+    <div><?php the_content(); ?></div>
+
+
+<!--    доделать!!!-->
+    <?php
+
+}
+
+wp_reset_postdata(); // сброс
 ?>
+
+
+<?php get_header(); ?>
