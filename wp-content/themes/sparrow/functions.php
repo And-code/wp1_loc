@@ -5,6 +5,33 @@ add_action('wp_footer', 'scripts_theme');
 add_action('after_setup_theme', 'theme_register_nav_menu');
 add_action( 'widgets_init', 'register_my_widgets' );
 
+add_filter( 'document_title_separator', 'set_title_sep' );
+add_filter('the_content', 'set_content_end');
+
+// мой новый action.
+add_action('my_action', 'my_action_function');
+
+add_shortcode('my_shortcode', 'my_shortcode_function');
+
+function my_shortcode_function() {
+    return "Я шорткод!";
+}
+
+function my_action_function() {
+    echo "Я тут!";
+}
+
+function set_title_sep( $sep ){
+    $sep = ' | ';
+
+    return $sep;
+}
+
+function set_content_end($content) {
+    $content .= "Спасибо за прочтение!";
+    return $content;
+}
+
 
 function register_my_widgets(){
     register_sidebar( array(
@@ -66,3 +93,18 @@ function scripts_theme() {
 
     wp_enqueue_script('modernizr', get_template_directory_uri() . "/assets/js/modernizr.js", null, null, false);
 }
+
+add_shortcode( 'iframe', 'Generate_iframe' );
+
+function Generate_iframe( $atts ) {
+    $atts = shortcode_atts( array(
+        'href'   => 'http://wp1.loc',
+        'height' => '550px',
+        'width'  => '600px',
+    ), $atts );
+
+    return '<iframe src="'. $atts['href'] .'" width="'. $atts['width'] .'" height="'. $atts['height'] .'"> <p>Your Browser does not support Iframes.</p></iframe>';
+}
+
+// использование:
+// [iframe href="http://www.exmaple.com" height="480" width="640"]
