@@ -44,11 +44,13 @@ Template Post Type: portfolio
 
                     </div>
 
-<!--                    <ul class="portfolio-meta-list">-->
-<!--                        <li><span>Date: </span>January 2014</li>-->
-<!--                        <li><span>Client </span>Styleshout</li>-->
-<!--                        <li><span>Skills: </span>Photoshop, Photography, Branding</li>-->
-<!--                    </ul>-->
+                    <ul class="portfolio-meta-list">
+                        <li><span>Date: </span><?php the_field('project-date'); ?></li>
+                        <li><span>Client </span><?php the_field('project-client'); ?></li>
+                        <li><span>Skills: </span>Photoshop, Photography, Branding</li>
+                        <li><span>Как работалось?</span><?php the_field('project-description'); ?></li>
+
+                    </ul>
 
                     <a class="button" href="http://behance.net">View project</a>
 
@@ -58,10 +60,13 @@ Template Post Type: portfolio
 
                     <div class="entry-media">
 
+                        <img src="<?php the_field('project-image'); ?>" alt="" />
+
                         <?php
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail();
-                        }
+//                        if (has_post_thumbnail()) {
+//                            the_post_thumbnail();
+//                        }
+
                         ?>
 <!---->
 <!--                        <img src="images/portfolio/entries/geometric-backgrounds-01.jpg" alt="" />-->
