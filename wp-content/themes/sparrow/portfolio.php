@@ -69,7 +69,7 @@ Template Name: Портфолио
 
                                 <div class="item-wrap">
                                     <a href="<?php the_permalink(); ?>">
-                                        <img alt="" src="images/portfolio/geometrics.jpg">
+<!--                                        <img alt="" src="images/portfolio/geometrics.jpg">-->
 
                                         <?php
                                             if (has_post_thumbnail()) {
