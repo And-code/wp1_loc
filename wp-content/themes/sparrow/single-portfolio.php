@@ -1,9 +1,4 @@
-<?php
-/*
-Template Name: Портфолио пост
-Template Post Type: portfolio
- */
-?>
+
 
 <?php get_header(); ?>
 
@@ -48,6 +43,9 @@ Template Post Type: portfolio
                         <li><span>Date: </span><?php the_field('project-date'); ?></li>
                         <li><span>Client </span><?php the_field('project-client'); ?></li>
                         <li><span>Skills: </span>Photoshop, Photography, Branding</li>
+                        <li><span>Skills: </span>
+                            <?php the_terms( get_the_ID(), 'skills', '', ', ', '' ); ?>
+                        </li>
                         <li><span>Как работалось?</span><?php the_field('project-description'); ?></li>
 
                     </ul>
