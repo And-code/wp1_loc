@@ -214,8 +214,8 @@ function send_mail() {
     $to = get_option('admin_email');
 
 // удалим фильтры, которые могут изменять заголовок $headers
-// remove_all_filters( 'wp_mail_from' );
-// remove_all_filters( 'wp_mail_from_name' );
+ remove_all_filters( 'wp_mail_from' );
+ remove_all_filters( 'wp_mail_from_name' );
 
     $headers = array(
         'From: Me Myself <me@example.net>',
@@ -227,3 +227,4 @@ function send_mail() {
     wp_mail( $to, $contactSubject, $contactMessage, $headers );
     wp_die();
 }
+
