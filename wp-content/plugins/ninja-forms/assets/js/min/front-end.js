@@ -3439,7 +3439,6 @@ define('controllers/fieldDate',[], function() {
         },
 
         initDatepicker: function ( view ) {
-
             var dateFormat = view.model.get( 'date_format' );
     
             // For "default" date format, convert PHP format to JS compatible format.
@@ -3462,6 +3461,7 @@ define('controllers/fieldDate',[], function() {
                 altInput: true,
                 ariaDateFormat: dateFormat,
                 mode: "single",
+                disableMobile: "true",
                 locale: {
                     months: {
                         shorthand: nfi18n.monthsShort,

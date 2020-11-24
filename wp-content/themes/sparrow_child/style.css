@@ -1,0 +1,10 @@
+/*
+Theme Name: Sparrow child
+Template: sparrow
+*/
+
+@import url('../sparrow/style.css');
+
+.column, .columns {
+    background-color: red;
+}

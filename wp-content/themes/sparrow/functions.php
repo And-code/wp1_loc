@@ -17,9 +17,13 @@ function my_shortcode_function() {
     return "Я шорткод!";
 }
 
-function my_action_function() {
-    echo "Я тут!";
+// условно определяемая функция для ее переопределения в дочерней теме
+if (!function_exists('my_action_function')) {
+    function my_action_function() {
+        echo "Я тут!";
+    }
 }
+
 
 function set_title_sep( $sep ){
     $sep = ' | ';
