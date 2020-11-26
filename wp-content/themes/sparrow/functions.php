@@ -101,6 +101,7 @@ function scripts_theme() {
     wp_enqueue_script('modernizr', get_template_directory_uri() . "/assets/js/modernizr.js", null, null, false);
 
     wp_enqueue_script('main', get_template_directory_uri() . "/assets/js/main.js", ['jquery'], null, true);
+
 }
 
 add_shortcode( 'iframe', 'Generate_iframe' );

@@ -27,7 +27,8 @@
 
     <!-- Favicons
      ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" >
+<!--    <link rel="shortcut icon" href="favicon.ico" >-->
+    <link rel="shortcut icon" href="<?php get_template_directory_uri() . "/favicon.ico" ?> " >
 
     <?php wp_head();?>
 
@@ -48,7 +49,8 @@
 <!--                <a href="--><?php //bloginfo('url');?><!--">-->
                 <a href="<?php echo home_url(); ?>">
                     <div><?php bloginfo('name');?></div>
-                    <img alt="" src="images/logo.png">
+<!--                    <img alt="" src="images/logo.png">-->
+                    <img alt="" src="<?php get_template_directory_uri() . "/assets/images/logo.png" ?>">
                 </a>
             </div>
 
