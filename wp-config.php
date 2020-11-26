@@ -22,8 +22,8 @@
 
 // ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
 /** Имя базы данных для WordPress */
-define('WP_CACHE', true);
-define( 'WPCACHEHOME', '/home/andrey/public_html/wp1_loc/wp-content/plugins/wp-super-cache/' );
+define('WP_CACHE', false);
+
 define( 'DB_NAME', 'wp1_loc' );
 
 /** Имя пользователя MySQL */
